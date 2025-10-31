@@ -1,5 +1,3 @@
-import { toOpenTrivia } from './maps';
-
 export class Quiz {
   constructor() {
     this.questions = [];
@@ -10,7 +8,7 @@ export class Quiz {
   }
 
   loadQuestions(questions) {
-    this.questions = questions.map(toOpenTrivia);
+    this.questions = questions;
     this.reset();
   }
 

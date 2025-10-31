@@ -1,0 +1,119 @@
+{
+  "response_code": 0,
+  "results": [
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Scrum",
+      "question": "Según la Guía Scrum 2020, ¿cuál es el tamaño recomendado para un Scrum Team?",
+      "correct_answer": "10 personas o menos",
+      "incorrect_answers": [
+        "7 personas +/- 2",
+        "De 3 a 9 Developers",
+        "Depende del presupuesto del proyecto"
+      ],
+      "explanation": "La Guía Scrum 2020 especifica que el Scrum Team (incluyendo Product Owner, Scrum Master y Developers) es lo suficientemente pequeño como para seguir siendo ágil, típicamente de 10 personas o menos."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Scrum",
+      "question": "¿Cuáles son los tres pilares en los que se basa el control de procesos empírico de Scrum?",
+      "correct_answer": "Transparencia, Inspección y Adaptación",
+      "incorrect_answers": [
+        "Compromiso, Foco y Apertura",
+        "Planificación, Ejecución y Revisión",
+        "Valor, Respeto y Coraje"
+      ],
+      "explanation": "Scrum se basa en el empirismo y el pensamiento 'lean'. El empirismo afirma que el conocimiento proviene de la experiencia y de la toma de decisiones basada en lo que se observa. Los tres pilares son Transparencia, Inspección y Adaptación."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Scrum",
+      "question": "¿Quién es el único responsable (accountable) de gestionar el Product Backlog?",
+      "correct_answer": "El Product Owner",
+      "incorrect_answers": ["El Scrum Master", "Los Developers", "El Scrum Team en conjunto"],
+      "explanation": "El Product Owner es el único responsable (accountable) de la gestión eficaz del Product Backlog, lo que incluye crear y comunicar el Objetivo del Producto y crear y ordenar los elementos del Product Backlog. Puede delegar el trabajo, pero sigue siendo el responsable final."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Scrum",
+      "question": "En la Guía Scrum 2020, ¿cuáles son los 3 compromisos (commitments) asociados a los 3 artefactos?",
+      "correct_answer": "Product Goal (para el Product Backlog), Sprint Goal (para el Sprint Backlog) y Definition of Done (para el Incremento)",
+      "incorrect_answers": [
+        "Visión (para el Product Backlog), Objetivo del Sprint (para el Sprint Backlog) y Criterios de Aceptación (para el Incremento)",
+        "El Product Backlog, el Sprint Backlog y el Incremento (estos son los artefactos, no los compromisos)",
+        "Transparencia (para el Product Backlog), Inspección (para el Sprint Backlog) y Adaptación (para el Incremento)"
+      ],
+      "explanation": "La Guía 2020 introdujo el concepto de 'compromisos'. Cada artefacto tiene un compromiso asociado para asegurar que brinde información que mejore la transparencia: El Product Goal para el Product Backlog, el Sprint Goal para el Sprint Backlog y la Definition of Done para el Incremento."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Scrum",
+      "question": "¿Cuál es el propósito principal del evento Daily Scrum?",
+      "correct_answer": "Inspeccionar el progreso hacia el Sprint Goal y adaptar el Sprint Backlog si es necesario",
+      "incorrect_answers": [
+        "Reportar el estado de las tareas al Scrum Master",
+        "Asignar nuevas tareas a los Developers",
+        "Resolver impedimentos técnicos complejos"
+      ],
+      "explanation": "El propósito del Daily Scrum es inspeccionar el progreso hacia el Sprint Goal y adaptar el Sprint Backlog según sea necesario, ajustando el trabajo planificado para las próximas 24 horas. Es un evento de 15 minutos para los Developers."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Scrum",
+      "question": "¿Quién es responsable de crear el Sprint Goal durante el Sprint Planning?",
+      "correct_answer": "El Scrum Team (Product Owner, Scrum Master y Developers)",
+      "incorrect_answers": ["Solo el Product Owner", "Solo el Scrum Master", "Solo los Developers"],
+      "explanation": "Aunque el Product Owner propone cómo el producto podría aumentar su valor en el Sprint, el Sprint Goal es un objetivo creado *por* todo el Scrum Team. Se negocia y se elabora durante el Sprint Planning."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Scrum",
+      "question": "¿Cuál de estos NO es un evento de Scrum?",
+      "correct_answer": "Reunión de Refinamiento del Backlog (Backlog Refinement)",
+      "incorrect_answers": ["El Sprint", "Sprint Planning", "Sprint Retrospective"],
+      "explanation": "Los 5 eventos formales de Scrum son: El Sprint, Sprint Planning, Daily Scrum, Sprint Review y Sprint Retrospective. El Refinamiento del Backlog es una actividad continua necesaria, pero la Guía 2020 no lo describe como un 'evento' formal, sino como una actividad."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Scrum",
+      "question": "¿Quién es responsable de asegurar que la Definition of Done (DoD) se entienda y se cumpla?",
+      "correct_answer": "El Scrum Team",
+      "incorrect_answers": [
+        "El Product Owner, ya que define la calidad",
+        "El Scrum Master, ya que es el coach del equipo",
+        "Los Developers, ya que son quienes construyen el Incremento"
+      ],
+      "explanation": "Si la Definition of Done es parte de los estándares de la organización, todos los Scrum Teams deben seguirla. Si no existe, el Scrum Team debe crear una DoD apropiada para el producto. Todo el equipo es responsable de su cumplimiento."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Scrum",
+      "question": "Durante un Sprint, ¿quién tiene la autoridad para cancelar el Sprint?",
+      "correct_answer": "Solo el Product Owner",
+      "incorrect_answers": [
+        "El Scrum Master",
+        "Los Developers, por votación",
+        "Los Stakeholders (interesados)"
+      ],
+      "explanation": "Un Sprint podría cancelarse si el Sprint Goal se vuelve obsoleto. Solo el Product Owner tiene la autoridad para cancelar el Sprint, aunque puede hacerlo bajo la influencia de los stakeholders, los Developers o el Scrum Master."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Scrum",
+      "question": "¿Cuál es el time-box (duración máxima) de una Sprint Retrospective para un Sprint de un mes?",
+      "correct_answer": "3 horas",
+      "incorrect_answers": ["1 hora", "4 horas", "No tiene time-box"],
+      "explanation": "El time-box de la Sprint Retrospective es de un máximo de 3 horas para un Sprint de un mes. Para Sprints más cortos, el evento suele ser más corto."
+    }
+  ]
+}

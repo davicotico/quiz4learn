@@ -2,6 +2,7 @@
   <div class="flex min-h-screen flex-col font-sans bg-gray-100">
     <main class="flex-1">
       <div class="flex h-full w-full items-start sm:items-center justify-center p-5">
+        <QuizWelcome v-if="!quizStarted" @start-quiz="startQuiz($event)"></QuizWelcome>
         <QuizCompleted
           v-if="quiz.isFinished"
           :score="quiz.score"
@@ -9,7 +10,7 @@
           @restart="restartQuiz()"
         ></QuizCompleted>
         <div
-          v-else-if="currentQuestion"
+          v-else-if="quizStarted && currentQuestion"
           class="w-full max-w-lg rounded-xl border border-gray-300 bg-white p-6 shadow-lg"
         >
           <div class="mb-4 flex items-center justify-between text-sm">
@@ -30,7 +31,10 @@
               @select-answer="selectAnswer($event)"
             ></QuestionOption>
           </div>
-
+          <QuestionExplanation
+            v-if="quiz.getCurrentAnswer() && currentQuestion.explanation != undefined"
+            :explanation="currentQuestion.explanation"
+          ></QuestionExplanation>
           <button
             v-if="quiz.getCurrentAnswer()"
             @click="nextQuestion"
@@ -51,26 +55,35 @@
 
 <script setup>
 import { computed, onMounted, reactive, ref } from 'vue';
+import QuizWelcome from './components/QuizWelcome.vue';
 import QuizCompleted from './components/QuizCompleted.vue';
 import QuestionOption from './components/QuestionOption.vue';
+import QuestionExplanation from './components/QuestionExplanation.vue';
 import PageFooter from './components/PageFooter.vue';
 import DialogModal from './components/DialogModal.vue';
 import { useModal } from './composables/dialogs';
-import { useOpentrivia } from './composables/opentrivia';
 import { Quiz } from './utils/quiz';
+import { toQuiz4Learn } from './utils/maps';
+import { useQuizes } from './composables/quizes';
 
 const quiz = reactive(new Quiz());
+const quizStarted = ref(false);
 const currentQuestion = computed(() => quiz.getCurrentQuestion());
 const isLastQuestion = computed(() => quiz.currentQuestionIndex === quiz.questions.length - 1);
 
 const { isOpen, openModal } = useModal();
-const { getQuizData } = useOpentrivia();
+const { getQuizData } = useQuizes();
 const error = ref('');
 
-const setupQuiz = async () => {
+const startQuiz = (quizName) => {
+  quizStarted.value = true;
+  loadData(quizName);
+};
+
+const loadData = async (quizName) => {
   try {
-    let data = await getQuizData();
-    quiz.loadQuestions(data.results);
+    let data = await getQuizData(quizName);
+    quiz.loadQuestions(data.map(toQuiz4Learn));
   } catch (e) {
     error.value = e;
     openModal();
@@ -89,10 +102,9 @@ const nextQuestion = () => {
 };
 
 const restartQuiz = () => {
-  setupQuiz();
+  quizStarted.value = false;
+  quiz.reset();
 };
 
-onMounted(() => {
-  setupQuiz();
-});
+onMounted(() => {});
 </script>

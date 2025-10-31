@@ -11,7 +11,7 @@ Aplicación Quiz para Aprendizaje
 - **`selectAnswer(answer)`**: Registra una respuesta y actualiza el score
 - **`getStats()`**: Obtiene estadísticas completas del quiz
 
-## Métodos adicionales útiles:
+### Métodos adicionales útiles:
 
 - **`goToQuestion(index)`**: Salta a una pregunta específica
 - **`isCurrentQuestionAnswered()`**: Verifica si la pregunta actual ya fue respondida
@@ -22,7 +22,7 @@ Aplicación Quiz para Aprendizaje
 - **`reset()`**: Reinicia el quiz completo
 - **`finish()`**: Finaliza el quiz y retorna estadísticas
 
-## Características:
+### Características:
 
 ✅ Compatible con formato OpenTrivia API  
 ✅ Mezcla automática de opciones  
