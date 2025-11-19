@@ -1,0 +1,135 @@
+{
+  "response_code": 0,
+  "results": [
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "JavaScript",
+      "question": "¿Cuál es el método correcto del DOM para seleccionar un elemento HTML por su atributo 'id'?",
+      "correct_answer": "document.getElementById('miId')",
+      "incorrect_answers": [
+        "window.selectId('miId')",
+        "document.getElement('miId')",
+        "document.querySelectorAll('miId')"
+      ],
+      "explanation": "El método `getElementById` de la interfaz Document devuelve una referencia al elemento por su ID; el ID es una cadena que se puede usar para identificar el elemento de forma única, la cual distingue entre mayúsculas y minúsculas."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "JavaScript",
+      "question": "¿Qué palabra clave se introdujo en ES6 para declarar una variable que no puede ser reasignada?",
+      "correct_answer": "const",
+      "incorrect_answers": [
+        "let",
+        "var",
+        "static"
+      ],
+      "explanation": "La declaración `const` crea una referencia de solo lectura a un valor. No significa que el valor que contiene sea inmutable, sino que el identificador de la variable no puede ser reasignado."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "JavaScript",
+      "question": "¿Qué resultado devuelve la expresión `typeof null` en JavaScript?",
+      "correct_answer": "'object'",
+      "incorrect_answers": [
+        "'null'",
+        "'undefined'",
+        "'number'"
+      ],
+      "explanation": "En JavaScript, `typeof null` devuelve `'object'`. Esto se considera un error histórico en la implementación del lenguaje que no ha sido corregido para mantener la compatibilidad con código antiguo."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "JavaScript",
+      "question": "¿Cuál es la principal diferencia entre `localStorage` y `sessionStorage`?",
+      "correct_answer": "Los datos de sessionStorage se eliminan al cerrar la pestaña, mientras que los de localStorage persisten.",
+      "incorrect_answers": [
+        "localStorage tiene mayor capacidad de almacenamiento que sessionStorage.",
+        "sessionStorage permite guardar objetos complejos sin convertirlos a string.",
+        "localStorage solo funciona en modo incógnito."
+      ],
+      "explanation": "La propiedad `localStorage` y `sessionStorage` funcionan de manera similar, pero `sessionStorage` mantiene los datos solo mientras dura la sesión de la página (se borran al cerrar la pestaña o ventana), mientras que `localStorage` no tiene fecha de expiración."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "JavaScript",
+      "question": "¿Qué método se utiliza para prevenir que un formulario se envíe y recargue la página al hacer clic en su botón de submit?",
+      "correct_answer": "event.preventDefault()",
+      "incorrect_answers": [
+        "event.stopPropagation()",
+        "event.stopImmediatePropagation()",
+        "return false"
+      ],
+      "explanation": "El método `preventDefault()` de la interfaz Event le dice al agente de usuario (navegador) que si el evento no se maneja explícitamente, su acción predeterminada no debe tomarse como ocurre normalmente."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "JavaScript",
+      "question": "¿Qué imprimirá en la consola el siguiente código: `console.log(0.1 + 0.2 === 0.3)`?",
+      "correct_answer": "false",
+      "incorrect_answers": [
+        "true",
+        "undefined",
+        "NaN"
+      ],
+      "explanation": "Debido a cómo se representan los números de punto flotante en binario (estándar IEEE 754), la suma de 0.1 + 0.2 resulta en algo como 0.30000000000000004, por lo que la comparación estricta con 0.3 devuelve `false`."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "JavaScript",
+      "question": "¿Qué es el 'Event Bubbling' (burbujeo de eventos)?",
+      "correct_answer": "Es la propagación de un evento desde el elemento objetivo hacia sus ancestros en el DOM.",
+      "incorrect_answers": [
+        "Es cuando un evento se dispara primero en el elemento raíz y baja hasta el objetivo.",
+        "Es un error de memoria cuando se acumulan demasiados eventos.",
+        "Es la técnica para detener la ejecución de un evento."
+      ],
+      "explanation": "El burbujeo de eventos es un tipo de propagación de eventos donde el evento se activa primero en el elemento más anidado (el objetivo) y luego se activa sucesivamente en sus padres o ancestros en el orden de anidamiento."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "JavaScript",
+      "question": "¿Qué función se utiliza para convertir un objeto de JavaScript en una cadena de texto JSON?",
+      "correct_answer": "JSON.stringify()",
+      "incorrect_answers": [
+        "JSON.parse()",
+        "JSON.toString()",
+        "JSON.convert()"
+      ],
+      "explanation": "El método `JSON.stringify()` convierte un objeto o valor de JavaScript en una cadena de texto JSON, opcionalmente reemplazando valores si se especifica una función de reemplazo."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "JavaScript",
+      "question": "¿Qué es un 'Closure' (clausura) en JavaScript?",
+      "correct_answer": "Una función que recuerda y tiene acceso a variables de su ámbito externo, incluso después de que la función externa haya terminado de ejecutarse.",
+      "incorrect_answers": [
+        "Una función que se ejecuta inmediatamente después de ser definida (IIFE).",
+        "Un bloque de código que cierra la conexión con el servidor.",
+        "Una variable que solo puede ser accedida dentro de un bucle for."
+      ],
+      "explanation": "Un closure es la combinación de una función y el entorno léxico en el que se declaró esa función. Permite a una función interna acceder al alcance de una función externa incluso después de que la externa haya retornado."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "JavaScript",
+      "question": "¿Cómo se ejecuta una función asíncrona de manera secuencial esperando su resultado usando sintaxis moderna?",
+      "correct_answer": "Usando las palabras clave `async` y `await`.",
+      "incorrect_answers": [
+        "Usando `setTimeout` con un callback.",
+        "Usando el método `.then()` encadenado.",
+        "Usando generadores con `yield` solamente."
+      ],
+      "explanation": "Las funciones `async` y el operador `await` (introducidos en ES2017) permiten escribir código asíncrono basado en promesas de una manera que se lee y comporta más como código síncrono, pausando la ejecución hasta que la promesa se resuelve."
+    }
+  ]
+}

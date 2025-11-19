@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const httpClient = axios.create({
-  baseURL: 'https://opentdb.com/',
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'https://davidticona.com/quiz4learn/data/',
   timeout: 5000,
 });
 

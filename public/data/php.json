@@ -1,0 +1,135 @@
+{
+  "response_code": 0,
+  "results": [
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "PHP",
+      "question": "¿Con qué símbolo deben comenzar siempre las variables en PHP?",
+      "correct_answer": "$",
+      "incorrect_answers": [
+        "@",
+        "&",
+        "#"
+      ],
+      "explanation": "En PHP, todas las variables se declaran y se utilizan anteponiendo el signo de dólar ($) al nombre de la variable (ej: $miVariable)."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "PHP",
+      "question": "¿Cuál es el operador utilizado para concatenar dos cadenas de texto en PHP?",
+      "correct_answer": ".",
+      "incorrect_answers": [
+        "+",
+        "&",
+        "concat()"
+      ],
+      "explanation": "A diferencia de otros lenguajes como JavaScript que usan '+', PHP utiliza el punto (.) como operador de concatenación de strings."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "PHP",
+      "question": "¿Cuál es la diferencia principal entre `include` y `require`?",
+      "correct_answer": "Si el archivo no se encuentra, `require` detiene el script con un error fatal, mientras que `include` solo emite una advertencia y continúa.",
+      "incorrect_answers": [
+        "`require` es para archivos HTML y `include` para archivos PHP.",
+        "`include` ejecuta el código más rápido que `require`.",
+        "`require` permite incluir el archivo múltiples veces, `include` solo una."
+      ],
+      "explanation": "Ambos sirven para incluir archivos externos, pero `require` (y `require_once`) es estricto: si falla, la ejecución se detiene completamente, lo cual es crucial si el archivo es vital para la aplicación."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "PHP",
+      "question": "¿Qué superglobal se utiliza para acceder a la información enviada a través de un formulario con el método `method='POST'`?",
+      "correct_answer": "$_POST",
+      "incorrect_answers": [
+        "$_GET",
+        "$_SERVER",
+        "$_SEND"
+      ],
+      "explanation": "$_POST es un array asociativo de variables pasadas al script actual a través del método HTTP POST."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "PHP",
+      "question": "¿Qué operador se utiliza para asignar pares clave/valor en un array asociativo?",
+      "correct_answer": "=>",
+      "incorrect_answers": [
+        "->",
+        ":",
+        "="
+      ],
+      "explanation": "El operador `=>` se utiliza en la definición de arrays para asociar una clave específica a un valor (ej: `['clave' => 'valor']`). No debe confundirse con `->` que es para acceder a propiedades de objetos."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "PHP",
+      "question": "¿Qué hace el operador de fusión de null (Null Coalescing Operator) `??` introducido en PHP 7?",
+      "correct_answer": "Devuelve el primer operando si existe y no es NULL; de lo contrario, devuelve el segundo operando.",
+      "incorrect_answers": [
+        "Compara si dos valores son idénticos incluyendo su tipo.",
+        "Es un operador ternario abreviado que evalúa si un valor es verdadero o falso.",
+        "Eleva el número de la izquierda a la potencia del número de la derecha."
+      ],
+      "explanation": "El operador `??` es azúcar sintáctico para el caso común de necesitar usar un ternario junto con `isset()`. Ejemplo: `$usuario = $_GET['user'] ?? 'anónimo';`."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "PHP",
+      "question": "¿Cómo se accede a una propiedad de un objeto dentro de la clase que la define?",
+      "correct_answer": "$this->propiedad",
+      "incorrect_answers": [
+        "$self.propiedad",
+        "self::propiedad",
+        "$propiedad"
+      ],
+      "explanation": "La pseudo-variable `$this` está disponible cuando un método es invocado desde dentro del contexto de un objeto y se usa junto con el operador `->` para acceder a sus propiedades y métodos no estáticos."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "PHP",
+      "question": "¿Cuál es el ámbito (scope) de una variable definida fuera de una función cuando se intenta usar dentro de una función sin declararla global?",
+      "correct_answer": "No es accesible (undefined)",
+      "incorrect_answers": [
+        "Es accesible automáticamente.",
+        "Es accesible solo si es una constante.",
+        "Es accesible pero de solo lectura."
+      ],
+      "explanation": "En PHP, las variables globales no son visibles automáticamente dentro de las funciones. Para usarlas, se deben declarar con la palabra clave `global $variable` dentro de la función o usar el array `$GLOBALS`."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "PHP",
+      "question": "¿Qué función se recomienda utilizar para prevenir inyecciones SQL al trabajar con bases de datos modernas en PHP?",
+      "correct_answer": "Sentencias preparadas (Prepared Statements) con PDO o MySQLi",
+      "incorrect_answers": [
+        "mysql_real_escape_string()",
+        "strip_tags()",
+        "htmlspecialchars()"
+      ],
+      "explanation": "Aunque `mysql_real_escape_string` se usaba antiguamente, la forma moderna y segura es usar sentencias preparadas donde la base de datos separa la consulta de los datos, haciendo imposible la inyección SQL."
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "PHP",
+      "question": "¿Qué imprimirá el siguiente código: `echo '1' + 2;`?",
+      "correct_answer": "3",
+      "incorrect_answers": [
+        "12",
+        "Error de sintaxis",
+        "1+2"
+      ],
+      "explanation": "PHP convierte automáticamente la cadena '1' a un entero (type juggling) porque se está utilizando el operador aritmético de suma `+`. Si fuera el operador de concatenación `.`, el resultado sería '12'."
+    }
+  ]
+}
