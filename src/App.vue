@@ -42,6 +42,13 @@
           >
             {{ isLastQuestion ? 'Finalizar Quiz' : 'Siguiente Pregunta' }}
           </button>
+
+          <button
+            @click="restartQuiz()"
+            class="mt-3 w-full rounded-full bg-gray-400 px-6 py-2.5 text-base font-bold text-white transition-colors hover:bg-gray-500"
+          >
+            Volver a Inicio
+          </button>
         </div>
       </div>
     </main>

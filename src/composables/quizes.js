@@ -8,7 +8,7 @@ export function useQuizes() {
   const getQuizData = async (quizName) => {
     isLoading.value = true;
     try {
-      const { data } = await httpClient.get('data/' + quizName + '.json');
+      const { data } = await httpClient.get(quizName + '.json');
       return shuffleArray(data.results);
     } catch (err) {
       throw new Error(err.message);
@@ -20,7 +20,7 @@ export function useQuizes() {
   const getQuizCategories = async () => {
     isLoading.value = true;
     try {
-      const { data } = await httpClient.get('data/categories.json');
+      const { data } = await httpClient.get('categories.json');
       return data;
     } catch (err) {
       throw new Error(err.message);
