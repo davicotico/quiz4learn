@@ -1,22 +1,27 @@
 <template>
-  <div
-    v-for="option in currentQuestion.options"
-    :key="option"
-    :class="getOptionClass(option)"
-    @click="selectAnswer(option)"
-  >
-    <span class="option-text" v-html="option"></span>
-    <span
-      v-if="selectedAnswer && option === currentQuestion.correctAnswer"
-      class="text-lg font-bold text-green-500"
-      >✔</span
+  <TransitionGroup name="list" type="animation">
+    <div
+      v-for="(option, index) in currentQuestion.options"
+      :key="option"
+      :style="{ '--delay': index }"
+      :class="getOptionClass(option)"
+      @click="selectAnswer(option)"
     >
-    <span
-      v-if="selectedAnswer && option === selectedAnswer && option !== currentQuestion.correctAnswer"
-      class="text-lg font-bold text-red-500"
-      >✖</span
-    >
-  </div>
+      <span class="option-text" v-html="option"></span>
+      <span
+        v-if="selectedAnswer && option === currentQuestion.correctAnswer"
+        class="text-lg font-bold text-green-500"
+        >✔</span
+      >
+      <span
+        v-if="
+          selectedAnswer && option === selectedAnswer && option !== currentQuestion.correctAnswer
+        "
+        class="text-lg font-bold text-red-500"
+        >✖</span
+      >
+    </div>
+  </TransitionGroup>
 </template>
 <script setup>
 import { ref, watch } from 'vue';
@@ -65,3 +70,20 @@ watch(
   },
 );
 </script>
+<style scoped>
+.list-enter-active {
+  transition: all 0.5s ease;
+  /* Multiplicamos el índice por el tiempo de retraso deseado */
+  transition-delay: calc(var(--delay) * 0.2s);
+}
+
+/* Para que al salir no haya retraso (opcional) */
+.list-leave-active {
+  transition: all 0.3s ease;
+}
+
+.list-enter-from {
+  opacity: 0;
+  transform: translateX(30px);
+}
+</style>

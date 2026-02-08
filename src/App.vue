@@ -9,47 +9,48 @@
           :questions-length="quiz.questions.length"
           @restart="restartQuiz()"
         ></QuizCompleted>
-        <div
-          v-else-if="quizStarted && currentQuestion"
-          class="w-full max-w-lg rounded-xl border border-gray-300 bg-white p-6 shadow-lg"
-        >
-          <div class="mb-4 flex items-center justify-between text-sm">
-            <span class="rounded-md bg-gray-100 px-2 py-1 font-medium text-gray-600">{{
-              currentQuestion.category
-            }}</span>
-            <span class="font-medium text-gray-600">
-              Pregunta {{ quiz.getProgress().current }} de {{ quiz.getProgress().total }}</span
-            >
-          </div>
-          <h2
-            class="mb-5 text-xl font-bold leading-normal text-gray-900"
-            v-html="currentQuestion.question"
-          ></h2>
-          <div class="flex flex-col gap-3">
-            <QuestionOption
-              :current-question="currentQuestion"
-              @select-answer="selectAnswer($event)"
-            ></QuestionOption>
-          </div>
-          <QuestionExplanation
-            v-if="quiz.getCurrentAnswer() && currentQuestion.explanation != undefined"
-            :explanation="currentQuestion.explanation"
-          ></QuestionExplanation>
-          <button
-            v-if="quiz.getCurrentAnswer()"
-            @click="nextQuestion"
-            class="mt-6 w-full rounded-full bg-blue-600 px-6 py-2.5 text-base font-bold text-white transition-colors hover:bg-blue-700"
-          >
-            {{ isLastQuestion ? 'Finalizar Quiz' : 'Siguiente Pregunta' }}
-          </button>
 
-          <button
-            @click="restartQuiz()"
-            class="mt-3 w-full rounded-full bg-gray-400 px-6 py-2.5 text-base font-bold text-white transition-colors hover:bg-gray-500"
+          <div
+            v-else-if="quizStarted && currentQuestion"
+            class="w-full max-w-lg rounded-xl border border-gray-300 bg-white p-6 shadow-lg"
           >
-            Volver a Inicio
-          </button>
-        </div>
+            <div class="mb-4 flex items-center justify-between text-sm">
+              <span class="rounded-md bg-gray-100 px-2 py-1 font-medium text-gray-600">{{
+                currentQuestion.category
+              }}</span>
+              <span class="font-medium text-gray-600">
+                Pregunta {{ quiz.getProgress().current }} de {{ quiz.getProgress().total }}</span
+              >
+            </div>
+            <h2
+              class="mb-5 text-xl font-bold leading-normal text-gray-900"
+              v-html="currentQuestion.question"
+            ></h2>
+            <div class="flex flex-col gap-3">
+              <QuestionOption
+                :current-question="currentQuestion"
+                @select-answer="selectAnswer($event)"
+              ></QuestionOption>
+            </div>
+            <QuestionExplanation
+              v-if="quiz.getCurrentAnswer() && currentQuestion.explanation != undefined"
+              :explanation="currentQuestion.explanation"
+            ></QuestionExplanation>
+            <button
+              v-if="quiz.getCurrentAnswer()"
+              @click="nextQuestion"
+              class="mt-6 w-full rounded-full bg-blue-600 px-6 py-2.5 text-base font-bold text-white transition-colors hover:bg-blue-700"
+            >
+              {{ isLastQuestion ? 'Finalizar Quiz' : 'Siguiente Pregunta' }}
+            </button>
+
+            <button
+              @click="restartQuiz()"
+              class="mt-3 w-full rounded-full bg-gray-400 px-6 py-2.5 text-base font-bold text-white transition-colors hover:bg-gray-500"
+            >
+              Volver a Inicio
+            </button>
+          </div>
       </div>
     </main>
     <PageFooter />
@@ -110,6 +111,7 @@ const nextQuestion = () => {
 
 const restartQuiz = () => {
   quizStarted.value = false;
+  quiz.questions = [];
   quiz.reset();
 };
 
