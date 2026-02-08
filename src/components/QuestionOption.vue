@@ -11,14 +11,14 @@
       <span
         v-if="selectedAnswer && option === currentQuestion.correctAnswer"
         class="text-lg font-bold text-green-500"
-        >✔</span
+        >✔&#xFE0E;</span
       >
       <span
         v-if="
           selectedAnswer && option === selectedAnswer && option !== currentQuestion.correctAnswer
         "
         class="text-lg font-bold text-red-500"
-        >✖</span
+        >✖&#xFE0E;</span
       >
     </div>
   </TransitionGroup>

@@ -6,7 +6,6 @@
       desafiantes quizzes.
     </p>
     <div class="flex flex-wrap justify-center gap-4">
-
       <button v-for="tema in temas" :key="tema.archivo" @click="iniciarQuiz(tema.archivo)"
         class="px-8 py-3 rounded-lg font-semibold text-white bg-blue-600 shadow-md transition-all transform hover:scale-105 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
         {{ tema.nombre }}

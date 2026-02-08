@@ -50,18 +50,7 @@
             Volver a Inicio
           </button>
         </div>
-        <div
-          v-if="isLoading"
-          class="w-full max-w-lg rounded-xl border border-gray-300 bg-white p-6 shadow-lg flex flex-wrap justify-center"
-        >
-          <h4 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Cargando</h4>
-          <div class="lds-ellipsis">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
+        <LoadingData v-if="isLoading"></LoadingData>
       </div>
     </main>
     <PageFooter />
@@ -80,6 +69,7 @@ import QuestionOption from './components/QuestionOption.vue';
 import QuestionExplanation from './components/QuestionExplanation.vue';
 import PageFooter from './components/PageFooter.vue';
 import DialogModal from './components/DialogModal.vue';
+import LoadingData from './components/LoadingData.vue';
 import { useModal } from './composables/dialogs';
 import { Quiz } from './utils/quiz';
 import { toQuiz4Learn } from './utils/maps';
@@ -128,64 +118,3 @@ const restartQuiz = () => {
 
 onMounted(() => {});
 </script>
-<style>
-.lds-ellipsis,
-.lds-ellipsis div {
-  box-sizing: border-box;
-}
-.lds-ellipsis {
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
-}
-.lds-ellipsis div {
-  position: absolute;
-  top: 33.33333px;
-  width: 13.33333px;
-  height: 13.33333px;
-  border-radius: 50%;
-  background: currentColor;
-  animation-timing-function: cubic-bezier(0, 1, 1, 0);
-}
-.lds-ellipsis div:nth-child(1) {
-  left: 8px;
-  animation: lds-ellipsis1 0.6s infinite;
-}
-.lds-ellipsis div:nth-child(2) {
-  left: 8px;
-  animation: lds-ellipsis2 0.6s infinite;
-}
-.lds-ellipsis div:nth-child(3) {
-  left: 32px;
-  animation: lds-ellipsis2 0.6s infinite;
-}
-.lds-ellipsis div:nth-child(4) {
-  left: 56px;
-  animation: lds-ellipsis3 0.6s infinite;
-}
-@keyframes lds-ellipsis1 {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes lds-ellipsis3 {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0);
-  }
-}
-@keyframes lds-ellipsis2 {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(24px, 0);
-  }
-}
-</style>
