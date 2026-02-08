@@ -26,15 +26,15 @@
             v-html="currentQuestion.question"
           ></h2>
           <div class="flex flex-col gap-3">
-            <QuestionOption
+            <QuestionOptionGroup
               :current-question="currentQuestion"
               @select-answer="selectAnswer($event)"
-            ></QuestionOption>
+            ></QuestionOptionGroup>
           </div>
-          <QuestionExplanation
+          <AnswerExplanation
             v-if="quiz.getCurrentAnswer() && currentQuestion.explanation != undefined"
             :explanation="currentQuestion.explanation"
-          ></QuestionExplanation>
+          />
           <button
             v-if="quiz.getCurrentAnswer()"
             @click="nextQuestion"
@@ -56,7 +56,7 @@
     <PageFooter />
   </div>
   <DialogModal :open="isOpen" title="Error">
-    <p>Error al cargar los datos desde desde opentrivia</p>
+    <p>Error al cargar los datos</p>
     <p>{{ error }}</p>
   </DialogModal>
 </template>
@@ -65,8 +65,8 @@
 import { computed, onMounted, reactive, ref } from 'vue';
 import QuizWelcome from './components/QuizWelcome.vue';
 import QuizCompleted from './components/QuizCompleted.vue';
-import QuestionOption from './components/QuestionOption.vue';
-import QuestionExplanation from './components/QuestionExplanation.vue';
+import QuestionOptionGroup from './components/QuestionOptionGroup.vue';
+import AnswerExplanation from './components/AnswerExplanation.vue';
 import PageFooter from './components/PageFooter.vue';
 import DialogModal from './components/DialogModal.vue';
 import LoadingData from './components/LoadingData.vue';
