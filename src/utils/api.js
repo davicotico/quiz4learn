@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const httpClient = axios.create({
+const httpClient = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || 'https://davidticona.com/quiz4learn/data/',
   timeout: 5000,
 });
@@ -12,3 +12,5 @@ httpClient.interceptors.response.use(
     return Promise.reject(error);
   },
 );
+
+export { httpClient };
