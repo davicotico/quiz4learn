@@ -18,13 +18,13 @@
           <DialogPanel
             class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
           >
-            <DialogTitle as="h3" class="text-xl font-bold mb-4">
+            <DialogTitle as="h3" class="dialog-title">
               {{ title }}
             </DialogTitle>
 
             <div class="mt-2">
               <slot>
-                <p class="text-sm text-gray-500">Este es el contenido por defecto del modal.</p>
+                <p class="text-sm text-gray-500">Sin mensaje</p>
               </slot>
             </div>
 
@@ -32,7 +32,7 @@
               <slot name="footer">
                 <button
                   type="button"
-                  class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+                  class="btn-danger"
                   @click="closeModal"
                 >
                   Aceptar
@@ -48,10 +48,8 @@
 
 <script setup>
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue';
-// Importamos nuestro composable
 import { useModal } from '../composables/dialogs';
 
-// Definimos las props del componente
 defineProps({
   title: {
     type: String,
@@ -59,6 +57,5 @@ defineProps({
   },
 });
 
-// Obtenemos el estado y las funciones del composable
 const { isModalOpen, closeModal } = useModal();
 </script>

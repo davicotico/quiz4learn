@@ -1,5 +1,39 @@
 @import 'tailwindcss';
+
 /* Animación para componente LoadingData */
+.app {
+  @apply flex min-h-screen flex-col font-sans bg-gray-100;
+}
+.card {
+  @apply flex h-full w-full items-start sm:items-center justify-center p-5;
+}
+.btn-primary {
+  @apply rounded-full bg-blue-600 px-6 py-2.5 text-base font-bold text-white transition-colors hover:bg-blue-700;
+}
+.btn-secondary {
+  @apply rounded-full bg-gray-400 px-6 py-2.5 text-base font-bold text-white transition-colors hover:bg-gray-500;
+}
+.btn-danger {
+  @apply px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors;
+}
+.dialog-title {
+  @apply text-xl font-bold mb-4;
+}
+.list-item {
+  @apply flex justify-between items-center p-4 border-2 rounded-lg cursor-pointer transition-all duration-200 font-medium select-none;
+}
+.list-item-correct {
+  @apply bg-green-50 border-green-500 text-green-700 cursor-default;
+}
+.list-item-incorrect {
+  @apply bg-red-50 border-red-500 text-red-700 font-bold cursor-default;
+}
+.list-item-enabled {
+  @apply border-gray-300 hover:bg-gray-50 hover:border-gray-400;
+}
+.list-item-disabled {
+  @apply border-gray-300 opacity-60 bg-gray-100 cursor-default pointer-events-none;
+}
 .lds-ellipsis div {
   box-sizing: border-box;
 }

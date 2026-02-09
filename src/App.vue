@@ -1,7 +1,7 @@
 <template>
-  <div class="flex min-h-screen flex-col font-sans bg-gray-100">
+  <div class="app">
     <main class="flex-1">
-      <div class="flex h-full w-full items-start sm:items-center justify-center p-5">
+      <div class="card">
         <QuizWelcome v-if="!quizStarted" @start-quiz="startQuiz($event)"></QuizWelcome>
         <QuizCompleted
           v-if="quiz.isFinished"
@@ -38,14 +38,14 @@
           <button
             v-if="quiz.getCurrentAnswer()"
             @click="nextQuestion"
-            class="mt-6 w-full rounded-full bg-blue-600 px-6 py-2.5 text-base font-bold text-white transition-colors hover:bg-blue-700"
+            class="btn-primary mt-6 w-full"
           >
             {{ isLastQuestion ? 'Finalizar Quiz' : 'Siguiente Pregunta' }}
           </button>
 
           <button
             @click="restartQuiz()"
-            class="mt-3 w-full rounded-full bg-gray-400 px-6 py-2.5 text-base font-bold text-white transition-colors hover:bg-gray-500"
+            class="mt-3 w-full btn-secondary"
           >
             Volver a Inicio
           </button>

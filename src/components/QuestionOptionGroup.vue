@@ -4,7 +4,8 @@
       v-for="(option, index) in currentQuestion.options"
       :key="option"
       :style="{ '--delay': index }"
-      :class="getOptionClass(option)"
+      class="list-item"
+      :class="getOptionClasses(option)"
       @click="selectAnswer(option)"
     >
       <QuestionOption
@@ -34,28 +35,21 @@ const selectAnswer = (option) => {
   selectedAnswer.value = option;
   emit('selectAnswer', option);
 };
-
-const getOptionClass = (option) => {
-  const baseClasses =
-    'flex justify-between items-center p-4 border-2 rounded-lg cursor-pointer transition-all duration-200 font-medium select-none';
-
+const getOptionClasses = (option) => {
   if (selectedAnswer.value === null) {
-    return `${baseClasses} border-gray-300 hover:bg-gray-50 hover:border-gray-400`;
+    return 'list-item-enabled';
   }
-
-  const isCorrect = option === props.currentQuestion.correctAnswer;
-  const isSelected = option === selectedAnswer.value;
-
+  let isCorrect = option === props.currentQuestion.correctAnswer;
+  let isSelected = option === selectedAnswer.value;
   if (isCorrect) {
-    return `${baseClasses} bg-green-50 border-green-500 text-green-700 font-bold cursor-default`;
+    return 'list-item-correct';
   }
-
   if (isSelected && !isCorrect) {
-    return `${baseClasses} bg-red-50 border-red-500 text-red-700 font-bold cursor-default`;
+    return 'list-item-incorrect';
   }
-
-  return `${baseClasses} border-gray-300 opacity-60 bg-gray-100 cursor-default pointer-events-none`;
+  return 'list-item-disabled';
 };
+
 watch(
   () => props.currentQuestion,
   () => {
@@ -70,7 +64,7 @@ watch(
   transition-delay: calc(var(--delay) * 0.2s);
 }
 
-/* Para que al salir no haya retraso (opcional) */
+/* Para que al salir no haya retraso */
 .list-leave-active {
   transition: all 0.3s ease;
 }
