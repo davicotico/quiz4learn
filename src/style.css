@@ -1,6 +1,5 @@
 @import 'tailwindcss';
 
-/* Animación para componente LoadingData */
 .app {
   @apply flex min-h-screen flex-col font-sans bg-gray-100;
 }
@@ -26,7 +25,7 @@
   @apply bg-green-50 border-green-500 text-green-700 cursor-default;
 }
 .list-item-incorrect {
-  @apply bg-red-50 border-red-500 text-red-700 font-bold cursor-default;
+  @apply bg-red-50 border-red-500 text-red-700 cursor-default;
 }
 .list-item-enabled {
   @apply border-gray-300 hover:bg-gray-50 hover:border-gray-400;
@@ -34,6 +33,8 @@
 .list-item-disabled {
   @apply border-gray-300 opacity-60 bg-gray-100 cursor-default pointer-events-none;
 }
+
+/* Animación para componente LoadingData */
 .lds-ellipsis div {
   box-sizing: border-box;
 }

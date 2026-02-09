@@ -1,0 +1,70 @@
+{
+    "response_code": 0,
+    "results": [
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "VueJS",
+            "question": "What is the CLI command to create a new Vue.js SPA with the official Vue project scaffolding tool (create-vue)?",
+            "correct_answer": "npm create vue@latest",
+            "incorrect_answers": [
+                "vue-cli init my-project",
+                "vue create my-project",
+                "npm create vue-project"
+            ],
+            "explanation": ""
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "VueJS",
+            "question": "When is it necessary to use .value?",
+            "correct_answer": "When setting the value of a ref in the script section",
+            "incorrect_answers": [
+                "When using v-if to conditionally render an element",
+                "When accessing the value of a ref in the template",
+                "When accessing the value of data declared with reactive()"
+            ],
+            "explanation": ""
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "VueJS",
+            "question": "What is the shorthand for v-bind?",
+            "correct_answer": "a colon (:)",
+            "incorrect_answers": [
+                "an ampersand (&)",
+                "a question mark (?)",
+                "a semicolon (;)"
+            ],
+            "explanation": ""
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "VueJS",
+            "question": "Which of the following is not a valid lifecycle hook?",
+            "correct_answer": "onActive",
+            "incorrect_answers": [
+                "onUnmounted",
+                "onErrorCaptured",
+                "onMounted"
+            ],
+            "explanation": ""
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "VueJS",
+            "question": "Which of the following best describes Nuxt?",
+            "correct_answer": "A meta-framework that enhances Vue with various rendering modes, conveniences, and more",
+            "incorrect_answers": [
+                "A library of common transition styles",
+                "A framework for building mobile apps",
+                "A library of re-usable UI elements"
+            ],
+            "explanation": ""
+        }
+    ]
+}

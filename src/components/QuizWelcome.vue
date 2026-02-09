@@ -5,33 +5,37 @@
       Bienvenido a nuestra plataforma de aprendizaje. Pon a prueba tus conocimientos con nuestros
       desafiantes quizzes.
     </p>
-    <div class="flex flex-wrap justify-center gap-4">
-      <button v-for="tema in temas" :key="tema.archivo" @click="iniciarQuiz(tema.archivo)"
-        class="px-8 py-3 rounded-lg font-semibold text-white bg-blue-600 shadow-md transition-all transform hover:scale-105 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-        {{ tema.nombre }}
-      </button>
-    </div>
+      <LoadingData v-if="isLoading"></LoadingData>
+      <div class="flex flex-wrap justify-center gap-4" v-else>
+        <button v-for="tema in categories" :key="tema.title" @click="iniciarQuiz(tema.name)"
+          class="px-8 py-3 rounded-lg font-semibold text-white bg-blue-600 shadow-md transition-all transform hover:scale-105 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+          {{ tema.title }}
+        </button>
+      </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
+import { useQuizes } from '@/composables/quizes';
+import LoadingData from './LoadingData.vue';
 
-const temas = ref([{
-  nombre: 'JavaScript',
-  archivo: 'javascript'
-}, {
-  nombre: 'Scrum Master',
-  archivo: 'scrum'
-}, {
-  nombre: 'PHP',
-  archivo: 'php'
-}
-]);
+const { getQuizCategories, isLoading } = useQuizes();
+const categories = ref([]);
 
+const loadData = async () => {
+  try {
+    let data = await getQuizCategories();
+    categories.value = data;
+  } catch (e) {
+    console.log(e);
+  }
+};
 const emit = defineEmits(['start-quiz']);
-
 const iniciarQuiz = (quizType) => {
   emit('start-quiz', quizType);
 };
+onMounted(() => {
+  loadData();
+});
 </script>
