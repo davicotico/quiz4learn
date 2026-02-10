@@ -22,6 +22,11 @@ import LoadingData from './LoadingData.vue';
 
 const { getQuizCategories, isLoading } = useQuizes();
 const categories = ref([]);
+const emit = defineEmits(['start-quiz']);
+
+onMounted(() => {
+  loadData();
+});
 
 const loadData = async () => {
   try {
@@ -31,11 +36,8 @@ const loadData = async () => {
     console.log(e);
   }
 };
-const emit = defineEmits(['start-quiz']);
+
 const iniciarQuiz = (quizType) => {
   emit('start-quiz', quizType);
 };
-onMounted(() => {
-  loadData();
-});
 </script>
