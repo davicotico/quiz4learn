@@ -1,3 +1,36 @@
+<script setup>
+import confetti from 'canvas-confetti';
+import { onMounted } from 'vue';
+
+const props = defineProps({
+  score: {
+    type: Number,
+  },
+  questionsLength: {
+    type: Number,
+  },
+});
+const emit = defineEmits(['restart']);
+const restartQuiz = () => {
+  emit('restart');
+};
+
+function calcularNota() {
+  return props.score / props.questionsLength;
+}
+
+onMounted(() => {
+  let nota = calcularNota();
+  if (nota >= 0.8) {
+    confetti({
+      particleCount: 150,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
+  }
+});
+</script>
+
 <template>
   <div class="w-full max-w-lg text-center">
     <div class="rounded-xl border border-gray-300 bg-white p-6 shadow-lg">
@@ -10,22 +43,8 @@
         @click="restartQuiz"
         class="mt-6 w-full rounded-full bg-blue-600 px-6 py-2.5 text-base font-bold text-white transition-colors hover:bg-blue-700"
       >
-        Volver a intentar
+        Volver a Inicio
       </button>
     </div>
   </div>
 </template>
-<script setup>
-defineProps({
-  score: {
-    type: Number,
-  },
-  questionsLength: {
-    type: Number,
-  },
-});
-const emit = defineEmits(['restart']);
-const restartQuiz = () => {
-  emit('restart');
-};
-</script>

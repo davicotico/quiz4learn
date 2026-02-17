@@ -96,7 +96,7 @@
 /* Fin animación para LoadingData */
 
 /* Transición de páginas */
-/*
+
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.5s ease;
@@ -111,8 +111,9 @@
   opacity: 0;
   transform: translateY(-20px);
 }
-*/
-.fade-enter-active,
+
+/* Transición 2 */
+/*.fade-enter-active,
 .fade-leave-active {
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
@@ -122,3 +123,4 @@
   opacity: 0;
   transform: scale(0.98);
 }
+*/

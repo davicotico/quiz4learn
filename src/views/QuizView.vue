@@ -39,7 +39,7 @@ const loadData = async (quizName) => {
       item.options = shuffleArray(item.options)
       return item;
     });
-    quiz.loadQuestions(quizUpdated);
+    quiz.loadQuestions(shuffleArray(quizUpdated));
     return;
   }
   try {
