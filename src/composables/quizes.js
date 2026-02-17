@@ -5,7 +5,7 @@ import { StorageSerializers, useLocalStorage } from '@vueuse/core';
 
 export function useQuizes() {
   const isLoading = ref(false);
-  const categories = useLocalStorage('categories', null, {serializer: StorageSerializers.object});
+  const categories = useLocalStorage('quiz-categories', null, { serializer: StorageSerializers.object });
   const getQuizData = async (quizName) => {
     isLoading.value = true;
     try {
@@ -19,11 +19,10 @@ export function useQuizes() {
   };
 
   const getQuizCategories = async () => {
-    isLoading.value = true;
     if (categories.value !== null) {
-      isLoading.value = false;
       return categories.value;
     }
+    isLoading.value = true;
     try {
       const { data } = await httpClient.get('categories.json');
       categories.value = data;
@@ -33,11 +32,11 @@ export function useQuizes() {
     } finally {
       isLoading.value = false;
     }
-  }
+  };
 
   return {
     isLoading,
     getQuizData,
-    getQuizCategories
+    getQuizCategories,
   };
 }

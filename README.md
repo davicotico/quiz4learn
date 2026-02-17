@@ -24,7 +24,6 @@ Aplicación Quiz para Aprendizaje
 
 ### Características:
 
-✅ Compatible con formato OpenTrivia API  
 ✅ Mezcla automática de opciones  
 ✅ Historial completo de respuestas  
 ✅ Sistema de puntuación  

@@ -13,7 +13,12 @@ const router = createRouter({
       path: '/quiz/:quiz',
       name: 'quiz',
       component: () => import('@/views/QuizView.vue')
-    }
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: () => import('@/views/NotFound.vue'),
+    },
   ]
 });
 export default router;

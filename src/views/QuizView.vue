@@ -3,13 +3,15 @@ import DialogModal from '@/components/DialogModal.vue';
 import { useModal } from '@/composables/dialogs';
 import { useQuizes } from '@/composables/quizes';
 import { Quiz } from '@/utils/quiz';
-import { computed, onMounted, reactive, ref } from 'vue';
+import { computed, onMounted, onUnmounted, reactive, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { toQuiz4Learn } from '@/utils/maps';
 import QuizCompleted from '@/components/QuizCompleted.vue';
 import LoadingData from '@/components/LoadingData.vue';
 import QuestionOptionGroup from '@/components/QuestionOptionGroup.vue';
 import AnswerExplanation from '@/components/AnswerExplanation.vue';
+import { StorageSerializers, useLocalStorage } from '@vueuse/core';
+import { shuffleArray } from '@/utils/utils';
 
 const route = useRoute();
 const router = useRouter();
@@ -25,10 +27,26 @@ onMounted(() => {
   loadData(route.params.quiz);
 });
 
+onUnmounted(() => {
+  quiz.questions = [];
+  quiz.reset();
+});
+
 const loadData = async (quizName) => {
+  const quizData = useLocalStorage(quizName, null, { serializer: StorageSerializers.object });
+  if (quizData.value !== null) {
+    let quizUpdated = quizData.value.map((item) => {
+      item.options = shuffleArray(item.options)
+      return item;
+    });
+    quiz.loadQuestions(quizUpdated);
+    return;
+  }
   try {
     let data = await getQuizData(quizName);
-    quiz.loadQuestions(data.map(toQuiz4Learn));
+    let mapQuestions = data.map(toQuiz4Learn);
+    quiz.loadQuestions(mapQuestions);
+    quizData.value = mapQuestions;
   } catch (e) {
     error.value = e;
     openModal();
@@ -47,11 +65,8 @@ const nextQuestion = () => {
 };
 
 const restartQuiz = () => {
-  quiz.questions = [];
-  quiz.reset();
-  router.push({ name: 'home'});
+  router.push({ name: 'home' });
 };
-
 </script>
 <template>
   <div class="card">
@@ -93,9 +108,9 @@ const restartQuiz = () => {
       <button @click="restartQuiz()" class="mt-3 w-full btn-secondary">Volver a Inicio</button>
     </div>
     <LoadingData v-if="isLoading"></LoadingData>
+    <DialogModal :open="isOpen" title="Error">
+      <p>Error al cargar los datos</p>
+      <p>{{ error }}</p>
+    </DialogModal>
   </div>
-  <DialogModal :open="isOpen" title="Error">
-    <p>Error al cargar los datos</p>
-    <p>{{ error }}</p>
-  </DialogModal>
 </template>
