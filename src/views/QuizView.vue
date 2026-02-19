@@ -99,7 +99,7 @@ const restartQuiz = () => {
         ></QuestionOptionGroup>
       </div>
       <AnswerExplanation
-        v-if="quiz.getCurrentAnswer() && currentQuestion.explanation != undefined"
+        v-if="quiz.getCurrentAnswer() && currentQuestion.explanation != undefined && currentQuestion.explanation != ''"
         :explanation="currentQuestion.explanation"
       />
       <button v-if="quiz.getCurrentAnswer()" @click="nextQuestion" class="btn-primary mt-6 w-full">
